@@ -50,8 +50,8 @@ function App() {
 
   return (
     <div className="flex h-screen items-center justify-center bg-primary">
-      <div className="flex w-full max-w-md flex-col overflow-clip rounded-xl border border-secondaryDark bg-secondaryExtraDark">
-        <h1 className="border-b border-secondaryDark p-2  text-lg font-semibold text-bodyTitleDark">
+      <div className="flex w-full max-w-md flex-col overflow-clip rounded-xl border border-bodyTextExtraDark bg-secondaryExtraDark">
+        <h1 className="border-b border-bodyTextExtraDark p-2  text-lg font-semibold text-bodyTitleDark">
           Currency Converter
         </h1>
         <form onSubmit={handleSubmit}>

@@ -23,7 +23,7 @@ function InputField({
   };
 
   return (
-    <div className="flex w-full divide-x divide-secondaryDark rounded-lg border border-secondaryDark p-2 text-bodyTextDark">
+    <div className="flex w-full divide-x divide-bodyTextExtraDark rounded-lg border border-bodyTextExtraDark p-2 text-bodyTextDark">
       <div className="flex w-1/2 flex-col gap-y-2 p-1">
         <label htmlFor={amountInputId}>{label}</label>
         <input
