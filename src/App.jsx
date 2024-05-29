@@ -21,10 +21,10 @@ function App() {
   }, [fromAmount, toAmount, fromCurrency, toCurrency]);
 
   const convertCurrency = useCallback(() => {
-    if (currencyInfo[toCurrency]) {
-      if (isFromAmount) {
+    if (currencyInfo && currencyInfo[toCurrency]) {
+      if (isFromAmount && fromAmount != null) {
         setToAmount(fromAmount * currencyInfo[toCurrency]);
-      } else {
+      } else if (!isFromAmount && toAmount != null) {
         setFromAmount(toAmount / currencyInfo[toCurrency]);
       }
     }

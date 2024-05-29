@@ -1,22 +1,24 @@
 import { useId } from "react";
+import PropTypes from "prop-types";
 
 function InputField({
-  label = "TempLable",
-  amount = 0,
-  isAmountDisable = false,
-  selectCurrency = "",
+  label,
+  amount,
+  isAmountDisable,
+  selectCurrency,
   onAmountChange,
   onCurrencyChange,
-  isCurrencyDisable = false,
-  currencyList = [],
-  placeHolder = "Enter amount",
+  isCurrencyDisable,
+  currencyList,
+  placeHolder,
 }) {
   const amountInputId = useId();
   const currencySelectId = useId();
 
-  const handelAmountChange = (e) => {
-    if (e.target.value >= 0) {
-      onAmountChange && onAmountChange(Number(e.target.value));
+  const handleAmountChange = (e) => {
+    const value = e.target.value;
+    if (value === "" || value >= 0) {
+      onAmountChange && onAmountChange(value === "" ? "" : Number(value));
     }
   };
 
@@ -26,11 +28,11 @@ function InputField({
         <label htmlFor={amountInputId}>{label}</label>
         <input
           type="number"
-          value={amount}
+          value={amount !== null ? amount : ""}
           id={amountInputId}
           disabled={isAmountDisable}
           placeholder={placeHolder}
-          onChange={handelAmountChange}
+          onChange={handleAmountChange}
           className="h-10 rounded-md bg-bodyTextGray p-1 text-bodyTextLight placeholder-bodyTitleLight outline-none"
         />
       </div>
@@ -54,5 +56,29 @@ function InputField({
     </div>
   );
 }
+
+InputField.propTypes = {
+  label: PropTypes.string,
+  amount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  isAmountDisable: PropTypes.bool,
+  selectCurrency: PropTypes.string,
+  onAmountChange: PropTypes.func,
+  onCurrencyChange: PropTypes.func,
+  isCurrencyDisable: PropTypes.bool,
+  currencyList: PropTypes.arrayOf(PropTypes.string),
+  placeHolder: PropTypes.string,
+};
+
+InputField.defaultProps = {
+  label: "TempLabel",
+  amount: null,
+  isAmountDisable: false,
+  selectCurrency: "",
+  onAmountChange: null,
+  onCurrencyChange: null,
+  isCurrencyDisable: false,
+  currencyList: [],
+  placeHolder: "Enter amount",
+};
 
 export default InputField;
