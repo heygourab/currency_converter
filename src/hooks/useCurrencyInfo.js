@@ -26,11 +26,6 @@ function useCurrencyInfo(currency) {
   }, [currency]);
 
   /**
-   * Logs the fetched currency data to the console.
-   */
-  console.log(data);
-
-  /**
    * Returns the fetched currency data.
    * @returns {Object} - The fetched currency data.
    */
