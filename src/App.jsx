@@ -6,8 +6,8 @@ import swapIcon from "./assets/swap.svg";
 function App() {
   const [fromCurrency, setFromCurrency] = useState("usd");
   const [toCurrency, setToCurrency] = useState("inr");
-  const [fromAmount, setFromAmount] = useState(null);
-  const [toAmount, setToAmount] = useState(null);
+  const [fromAmount, setFromAmount] = useState(0);
+  const [toAmount, setToAmount] = useState(0);
   const [isFromAmount, setIsFromAmount] = useState(true);
 
   const currencyInfo = useCurrencyInfo(fromCurrency);
